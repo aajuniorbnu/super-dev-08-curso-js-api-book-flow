@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autores - BookFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <!-- API_BASE_URL: configurar em js/config.js -->
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <button class="btn-menu-toggle" id="btn-menu-toggle"><i class="fas fa-bars"></i></button>
+        <a href="index.html" class="header-logo">Book<span>Flow</span></a>
+      </div>
+      <div class="header-right">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-title">Menu</span>
+        <a href="index.html" class="nav-link"><i class="fas fa-gauge"></i> Dashboard</a>
+        <a href="bibliotecas.html" class="nav-link"><i class="fas fa-building-columns"></i> Bibliotecas</a>
+        <a href="livros.html" class="nav-link"><i class="fas fa-book"></i> Livros</a>
+        <a href="autores.html" class="nav-link active"><i class="fas fa-pen-nib"></i> Autores</a>
+        <a href="categorias.html" class="nav-link"><i class="fas fa-tags"></i> Categorias</a>
+        <a href="usuarios.html" class="nav-link"><i class="fas fa-users"></i> Usuarios</a>
+        <a href="emprestimos.html" class="nav-link"><i class="fas fa-arrow-right-arrow-left"></i> Emprestimos</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="main-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Dashboard</a>
+          <span class="separator">/</span>
+          <span class="current">Autores</span>
+        </nav>
+
+        <div class="page-header">
+          <h1>Autores</h1>
+          <a href="autor-form.html" class="btn btn-primary"><i class="fas fa-plus"></i> Novo Autor</a>
+        </div>
+
+        <div id="alert-container" class="hidden"></div>
+
+        <div class="filters-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-autor" placeholder="Buscar por nome...">
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table" id="table-autores">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Nacionalidade</th>
+                  <th>Data Nascimento</th>
+                  <th class="cell-actions">Acoes</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-autores">
+                <tr>
+                  <td class="cell-id">1</td>
+                  <td>Machado de Assis</td>
+                  <td>Brasileira</td>
+                  <td>21/06/1839</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="1" title="Editar"><i class="fas fa-pen"></i></button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="1" title="Excluir"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-id">2</td>
+                  <td>Clarice Lispector</td>
+                  <td>Brasileira</td>
+                  <td>10/12/1920</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="2" title="Editar"><i class="fas fa-pen"></i></button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="2" title="Excluir"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-id">3</td>
+                  <td>Jose Saramago</td>
+                  <td>Portuguesa</td>
+                  <td>16/11/1922</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="3" title="Editar"><i class="fas fa-pen"></i></button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="3" title="Excluir"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-id">4</td>
+                  <td>Jorge Amado</td>
+                  <td>Brasileira</td>
+                  <td>10/08/1912</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="4" title="Editar"><i class="fas fa-pen"></i></button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="4" title="Excluir"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="empty-state hidden" id="empty-state">
+          <div class="empty-state-icon"><i class="fas fa-pen-nib"></i></div>
+          <h3>Nenhum autor encontrado</h3>
+          <p>Nao existem autores cadastrados ainda. Clique no botao acima para adicionar um novo autor.</p>
+          <a href="autor-form.html" class="btn btn-primary"><i class="fas fa-plus"></i> Novo Autor</a>
+        </div>
+
+        <!-- Modal de exclusao -->
+        <div class="modal-overlay" id="modal-delete">
+          <div class="modal">
+            <div class="modal-icon"><i class="fas fa-trash"></i></div>
+            <h3>Excluir Autor</h3>
+            <p>Tem certeza que deseja excluir este autor? Esta acao nao pode ser desfeita.</p>
+            <div class="modal-actions">
+              <button class="btn btn-secondary" id="btn-cancel-delete">Cancelar</button>
+              <button class="btn btn-danger" id="btn-confirm-delete">Excluir</button>
+            </div>
+          </div>
+        </div>
+
+        <template id="template-row-autor">
+          <tr>
+            <td class="cell-id"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="cell-actions">
+              <button class="btn-icon btn-icon-edit" data-action="edit" title="Editar"><i class="fas fa-pen"></i></button>
+              <button class="btn-icon btn-icon-danger" data-action="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+            </td>
+          </tr>
+        </template>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

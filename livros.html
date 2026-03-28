@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BookFlow - Gerenciamento de livros">
+  <title>Livros - BookFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <button class="btn-menu-toggle" id="btn-menu-toggle"><i class="fas fa-bars"></i></button>
+        <a href="index.html" class="header-logo">Book<span>Flow</span></a>
+      </div>
+      <div class="header-right">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-title">Menu</span>
+        <a href="index.html" class="nav-link"><i class="fas fa-gauge"></i> Dashboard</a>
+        <a href="bibliotecas.html" class="nav-link"><i class="fas fa-building-columns"></i> Bibliotecas</a>
+        <a href="livros.html" class="nav-link active"><i class="fas fa-book"></i> Livros</a>
+        <a href="autores.html" class="nav-link"><i class="fas fa-pen-nib"></i> Autores</a>
+        <a href="categorias.html" class="nav-link"><i class="fas fa-tags"></i> Categorias</a>
+        <a href="usuarios.html" class="nav-link"><i class="fas fa-users"></i> Usuarios</a>
+        <a href="emprestimos.html" class="nav-link"><i class="fas fa-arrow-right-arrow-left"></i> Emprestimos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="main-content">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Dashboard</a>
+          <span class="separator">/</span>
+          <span class="current">Livros</span>
+        </nav>
+
+        <div id="alert-container" class="hidden"></div>
+
+        <div class="page-header">
+          <div>
+            <h1>Livros</h1>
+          </div>
+          <a href="livro-form.html" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Novo Livro
+          </a>
+        </div>
+
+        <div class="filters-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-livro" placeholder="Buscar por titulo ou ISBN...">
+          </div>
+          <div class="filter-group">
+            <label for="filter-autor">Autor:</label>
+            <select id="filter-autor">
+              <option value="">Todos os Autores</option>
+              <option value="1">Machado de Assis</option>
+              <option value="2">Clarice Lispector</option>
+              <option value="3">Jorge Amado</option>
+              <option value="4">Guimaraes Rosa</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-categoria">Categoria:</label>
+            <select id="filter-categoria">
+              <option value="">Todas as Categorias</option>
+              <option value="1">Romance</option>
+              <option value="2">Conto</option>
+              <option value="3">Poesia</option>
+              <option value="4">Ficcao Cientifica</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table" id="table-livros">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titulo</th>
+                  <th>Autor</th>
+                  <th>Categoria</th>
+                  <th>Ano</th>
+                  <th>ISBN</th>
+                  <th>Qtd</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-livros">
+                <tr data-id="1">
+                  <td class="cell-id">1</td>
+                  <td>Dom Casmurro</td>
+                  <td>Machado de Assis</td>
+                  <td>Romance</td>
+                  <td>1899</td>
+                  <td>978-85-359-0277-5</td>
+                  <td>3</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="1" aria-label="Editar livro">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="1" aria-label="Excluir livro">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-id="2">
+                  <td class="cell-id">2</td>
+                  <td>A Hora da Estrela</td>
+                  <td>Clarice Lispector</td>
+                  <td>Romance</td>
+                  <td>1977</td>
+                  <td>978-85-325-2157-8</td>
+                  <td>2</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="2" aria-label="Editar livro">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="2" aria-label="Excluir livro">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-id="3">
+                  <td class="cell-id">3</td>
+                  <td>Grande Sertao: Veredas</td>
+                  <td>Guimaraes Rosa</td>
+                  <td>Romance</td>
+                  <td>1956</td>
+                  <td>978-85-209-2647-1</td>
+                  <td>1</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="3" aria-label="Editar livro">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="3" aria-label="Excluir livro">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-id="4">
+                  <td class="cell-id">4</td>
+                  <td>Capitaes da Areia</td>
+                  <td>Jorge Amado</td>
+                  <td>Romance</td>
+                  <td>1937</td>
+                  <td>978-85-359-0478-6</td>
+                  <td>4</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="4" aria-label="Editar livro">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="4" aria-label="Excluir livro">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-id="5">
+                  <td class="cell-id">5</td>
+                  <td>Memorias Postumas de Bras Cubas</td>
+                  <td>Machado de Assis</td>
+                  <td>Romance</td>
+                  <td>1881</td>
+                  <td>978-85-359-0279-9</td>
+                  <td>2</td>
+                  <td class="cell-actions">
+                    <button class="btn-icon btn-icon-edit" data-action="edit" data-id="5" aria-label="Editar livro">
+                      <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn-icon btn-icon-danger" data-action="delete" data-id="5" aria-label="Excluir livro">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pagination" id="pagination">
+          <button class="pagination-btn" disabled aria-label="Pagina anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn" aria-label="Proxima pagina">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="empty-state hidden">
+          <div class="empty-state-icon">
+            <i class="fas fa-inbox"></i>
+          </div>
+          <h3>Nenhum livro encontrado</h3>
+          <p>Adicione um novo livro para comecar.</p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modal-delete">
+    <div class="modal">
+      <div class="modal-icon">
+        <i class="fas fa-trash"></i>
+      </div>
+      <h3>Excluir Livro</h3>
+      <p>Tem certeza que deseja excluir este livro? Esta acao nao pode ser desfeita.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="btn-cancel-delete">Cancelar</button>
+        <button class="btn btn-danger" id="btn-confirm-delete">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <template id="template-livro-row">
+    <tr data-id="">
+      <td class="cell-id livro-id"></td>
+      <td class="livro-titulo"></td>
+      <td class="livro-autor"></td>
+      <td class="livro-categoria"></td>
+      <td class="livro-ano"></td>
+      <td class="livro-isbn"></td>
+      <td class="livro-quantidade"></td>
+      <td class="cell-actions">
+        <button class="btn-icon btn-icon-edit" data-action="edit" aria-label="Editar livro">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button class="btn-icon btn-icon-danger" data-action="delete" aria-label="Excluir livro">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </template>
+
+</body>
+</html>

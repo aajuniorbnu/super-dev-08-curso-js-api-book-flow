@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BookFlow - Cadastro de livro">
+  <title>Novo Livro - BookFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <button class="btn-menu-toggle" id="btn-menu-toggle"><i class="fas fa-bars"></i></button>
+        <a href="index.html" class="header-logo">Book<span>Flow</span></a>
+      </div>
+      <div class="header-right">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-title">Menu</span>
+        <a href="index.html" class="nav-link"><i class="fas fa-gauge"></i> Dashboard</a>
+        <a href="bibliotecas.html" class="nav-link"><i class="fas fa-building-columns"></i> Bibliotecas</a>
+        <a href="livros.html" class="nav-link active"><i class="fas fa-book"></i> Livros</a>
+        <a href="autores.html" class="nav-link"><i class="fas fa-pen-nib"></i> Autores</a>
+        <a href="categorias.html" class="nav-link"><i class="fas fa-tags"></i> Categorias</a>
+        <a href="usuarios.html" class="nav-link"><i class="fas fa-users"></i> Usuarios</a>
+        <a href="emprestimos.html" class="nav-link"><i class="fas fa-arrow-right-arrow-left"></i> Emprestimos</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="main-content">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Dashboard</a>
+          <span class="separator">/</span>
+          <a href="livros.html">Livros</a>
+          <span class="separator">/</span>
+          <span class="current">Novo Livro</span>
+        </nav>
+
+        <div id="alert-container" class="hidden"></div>
+
+        <div class="page-header">
+          <div>
+            <h1 id="page-title">Novo Livro</h1>
+            <p class="page-subtitle" id="page-subtitle">Preencha os dados do livro</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="form-livro" data-mode="create" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group full-width">
+                <label class="form-label" for="input-titulo">
+                  Titulo <span class="required">*</span>
+                </label>
+                <input type="text" id="input-titulo" class="form-input" required>
+                <span class="field-error hidden" id="error-titulo"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-autor">Autor</label>
+                <select id="select-autor" class="form-select">
+                  <option value="">Selecione um autor</option>
+                </select>
+                <span class="field-error hidden" id="error-autor"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="select-categoria">Categoria</label>
+                <select id="select-categoria" class="form-select">
+                  <option value="">Selecione uma categoria</option>
+                </select>
+                <span class="field-error hidden" id="error-categoria"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-ano">Ano de Publicacao</label>
+                <input type="number" id="input-ano" class="form-input" placeholder="2024">
+                <span class="field-error hidden" id="error-ano"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-isbn">ISBN</label>
+                <input type="text" id="input-isbn" class="form-input" placeholder="978-0-000-00000-0">
+                <span class="field-error hidden" id="error-isbn"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-quantidade">Quantidade</label>
+                <input type="number" id="input-quantidade" class="form-input" placeholder="1">
+                <span class="field-error hidden" id="error-quantidade"></span>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="textarea-descricao">Descricao</label>
+                <textarea id="textarea-descricao" class="form-textarea"></textarea>
+                <span class="field-error hidden" id="error-descricao"></span>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="textarea-resumo">Resumo</label>
+                <textarea id="textarea-resumo" class="form-textarea"></textarea>
+                <span class="field-error hidden" id="error-resumo"></span>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btn-salvar">
+                <i class="fas fa-check"></i> Salvar
+              </button>
+              <a href="livros.html" class="btn btn-secondary">
+                <i class="fas fa-xmark"></i> Cancelar
+              </a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

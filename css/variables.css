@@ -1,0 +1,169 @@
+/* ============================================
+   BookFlow - Design Tokens & Theme System
+   ============================================ */
+
+:root {
+  /* --- Typography --- */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* --- Spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* --- Layout --- */
+  --header-height: 64px;
+  --sidebar-width: 260px;
+  --content-max-width: 1200px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* --- Z-index --- */
+  --z-sidebar: 100;
+  --z-header: 200;
+  --z-modal-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  /* ============================
+     Light Theme (default)
+     ============================ */
+  --bg-primary: #FAF7F2;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F3EDE4;
+  --bg-sidebar: #F5F0E8;
+
+  --text-primary: #2D2A26;
+  --text-secondary: #6B6560;
+  --text-tertiary: #9A938A;
+  --text-inverse: #FFFFFF;
+
+  --accent: #C4841D;
+  --accent-hover: #A86D15;
+  --accent-subtle: rgba(196, 132, 29, 0.1);
+  --accent-muted: rgba(196, 132, 29, 0.2);
+
+  --secondary: #1B6B6D;
+  --secondary-hover: #145455;
+  --secondary-subtle: rgba(27, 107, 109, 0.1);
+
+  --danger: #C0392B;
+  --danger-hover: #A93226;
+  --danger-subtle: rgba(192, 57, 43, 0.1);
+
+  --success: #27AE60;
+  --success-hover: #1E8C4D;
+  --success-subtle: rgba(39, 174, 96, 0.1);
+
+  --warning: #F39C12;
+  --warning-hover: #D68910;
+  --warning-subtle: rgba(243, 156, 18, 0.1);
+
+  --info: #2980B9;
+  --info-subtle: rgba(41, 128, 185, 0.1);
+
+  --border: #E0DAD1;
+  --border-light: #ECE7DF;
+  --border-focus: var(--accent);
+
+  --shadow-sm: 0 1px 3px rgba(45, 42, 38, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 42, 38, 0.08);
+  --shadow-lg: 0 8px 24px rgba(45, 42, 38, 0.1);
+  --shadow-focus: 0 0 0 3px var(--accent-muted);
+
+  --table-header-bg: #F0EAE0;
+  --table-stripe-bg: rgba(45, 42, 38, 0.02);
+  --table-hover-bg: rgba(196, 132, 29, 0.04);
+
+  --sidebar-active-bg: var(--accent-subtle);
+  --sidebar-hover-bg: rgba(45, 42, 38, 0.04);
+}
+
+/* ============================
+   Dark Theme
+   ============================ */
+[data-theme="dark"] {
+  --bg-primary: #1A1814;
+  --bg-secondary: #252219;
+  --bg-tertiary: #2E2A22;
+  --bg-sidebar: #211E18;
+
+  --text-primary: #E8E2D8;
+  --text-secondary: #A89F94;
+  --text-tertiary: #7A7268;
+  --text-inverse: #1A1814;
+
+  --accent: #E5A84B;
+  --accent-hover: #F0BD6A;
+  --accent-subtle: rgba(229, 168, 75, 0.12);
+  --accent-muted: rgba(229, 168, 75, 0.25);
+
+  --secondary: #3DA8AB;
+  --secondary-hover: #56BFC2;
+  --secondary-subtle: rgba(61, 168, 171, 0.12);
+
+  --danger: #E74C3C;
+  --danger-hover: #F06B5E;
+  --danger-subtle: rgba(231, 76, 60, 0.15);
+
+  --success: #2ECC71;
+  --success-hover: #54D98C;
+  --success-subtle: rgba(46, 204, 113, 0.15);
+
+  --warning: #F1C40F;
+  --warning-hover: #F4D03F;
+  --warning-subtle: rgba(241, 196, 15, 0.15);
+
+  --info: #3498DB;
+  --info-subtle: rgba(52, 152, 219, 0.15);
+
+  --border: #3A352D;
+  --border-light: #322D26;
+  --border-focus: var(--accent);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-focus: 0 0 0 3px var(--accent-muted);
+
+  --table-header-bg: #2E2A22;
+  --table-stripe-bg: rgba(255, 255, 255, 0.02);
+  --table-hover-bg: rgba(229, 168, 75, 0.06);
+
+  --sidebar-active-bg: var(--accent-subtle);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.04);
+}

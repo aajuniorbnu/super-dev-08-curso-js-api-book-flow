@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Emprestimo - BookFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <!-- API_BASE_URL: configurar em js/config.js -->
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <button class="btn-menu-toggle" id="btn-menu-toggle"><i class="fas fa-bars"></i></button>
+        <a href="index.html" class="header-logo">Book<span>Flow</span></a>
+      </div>
+      <div class="header-right">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-title">Menu</span>
+        <a href="index.html" class="nav-link"><i class="fas fa-gauge"></i> Dashboard</a>
+        <a href="bibliotecas.html" class="nav-link"><i class="fas fa-building-columns"></i> Bibliotecas</a>
+        <a href="livros.html" class="nav-link"><i class="fas fa-book"></i> Livros</a>
+        <a href="autores.html" class="nav-link"><i class="fas fa-pen-nib"></i> Autores</a>
+        <a href="categorias.html" class="nav-link"><i class="fas fa-tags"></i> Categorias</a>
+        <a href="usuarios.html" class="nav-link"><i class="fas fa-users"></i> Usuarios</a>
+        <a href="emprestimos.html" class="nav-link active"><i class="fas fa-arrow-right-arrow-left"></i> Emprestimos</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="main-content">
+        <nav class="breadcrumb">
+          <a href="index.html">Dashboard</a>
+          <span class="separator">/</span>
+          <a href="emprestimos.html">Emprestimos</a>
+          <span class="separator">/</span>
+          <span class="current">Novo Emprestimo</span>
+        </nav>
+
+        <div class="page-header">
+          <div>
+            <h1 id="page-title">Novo Emprestimo</h1>
+            <p class="page-subtitle" id="page-subtitle">Preencha os dados do emprestimo</p>
+          </div>
+        </div>
+
+        <div id="alert-container" class="hidden"></div>
+
+        <div class="form-card">
+          <form id="form-emprestimo" data-mode="create" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="select-livro">Livro</label>
+                <select id="select-livro" class="form-select">
+                  <option value="">Selecione um livro</option>
+                  <option value="1">Dom Casmurro</option>
+                  <option value="2">A Hora da Estrela</option>
+                  <option value="3">Ensaio sobre a Cegueira</option>
+                  <option value="4">Capitaes da Areia</option>
+                  <option value="5">Memorias Postumas de Bras Cubas</option>
+                </select>
+                <span class="field-error hidden"><i class="fas fa-circle-exclamation"></i> Selecione um livro</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="select-usuario">Usuario</label>
+                <select id="select-usuario" class="form-select">
+                  <option value="">Selecione um usuario</option>
+                  <option value="1">Ana Carolina Silva</option>
+                  <option value="2">Pedro Henrique Oliveira</option>
+                  <option value="3">Maria Fernanda Costa</option>
+                  <option value="4">Lucas Martins Santos</option>
+                </select>
+                <span class="field-error hidden"><i class="fas fa-circle-exclamation"></i> Selecione um usuario</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-data-emprestimo">Data do Emprestimo</label>
+                <input type="date" id="input-data-emprestimo" class="form-input">
+                <span class="field-error hidden"><i class="fas fa-circle-exclamation"></i> Campo obrigatorio</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-data-devolucao">Data de Devolucao</label>
+                <input type="date" id="input-data-devolucao" class="form-input">
+                <span class="field-error hidden"><i class="fas fa-circle-exclamation"></i> Campo obrigatorio</span>
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="select-status">Status</label>
+                <select id="select-status" class="form-select">
+                  <option value="">Selecione o status</option>
+                  <option value="ativo">Ativo</option>
+                  <option value="devolvido">Devolvido</option>
+                  <option value="atrasado">Atrasado</option>
+                </select>
+                <span class="field-error hidden"><i class="fas fa-circle-exclamation"></i> Selecione um status</span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btn-salvar"><i class="fas fa-check"></i> Salvar</button>
+              <a href="emprestimos.html" class="btn btn-secondary"><i class="fas fa-xmark"></i> Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
